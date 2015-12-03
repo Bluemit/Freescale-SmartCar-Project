@@ -1,0 +1,124 @@
+
+
+
+# .interrupt_vectors
+#>00000000          F_vector_addr (linker command file)
+  00000000 000000DE interrupt_vectors.text F_vect	(Vectors_c.obj)
+
+# .reserved_FCF
+#>00000200          F_FCF_addr (linker command file)
+
+# .Data_xROM
+  00008000 00000005 .const.data FHMI_OLED_Table	(HMI_OLED_c.obj)
+  00008005 00000300 .const.data FAscii8x16	(OLED_c.obj)
+  00008305 00000007 .const.data F@203	(OLED_c.obj)
+
+# .ApplicationCode
+#>00000208          F_Pcode_start_addr (linker command file)
+  00000208 0000000B .text   FVS_Enable	(VS_c.obj)
+  00000213 00000038 .text   FSetCV	(TMR_c.obj)
+  0000024B 00000018 .text   FSetPV	(TMR_c.obj)
+  00000263 00000031 .text   FTMR_Init	(TMR_c.obj)
+  00000294 00000011 .text   FTMR_Interrupt	(TMR_c.obj)
+  000002A5 0000001F .text   FSERVO2_Init	(SERVO2_c.obj)
+  000002C4 0000004D .text   FSERVO1_Init	(SERVO1_c.obj)
+  00000311 00000006 .text   FHWEnDi	(SCI_c.obj)
+  00000317 00000011 .text   FSCI_Init	(SCI_c.obj)
+  00000328 0000002F .text   FRIGHTPA_Init	(RIGHTPA_c.obj)
+  00000357 0000002F .text   FLEFTPA_Init	(LEFTPA_c.obj)
+  00000386 0000000B .text   FHS_Enable	(HS_c.obj)
+  00000391 00000012 .text   FHMI_OLED_GetMsk	(HMI_OLED_c.obj)
+  000003A3 0000001F .text   FHMI_OLED_PutBit	(HMI_OLED_c.obj)
+  000003C2 00000014 .text   FDRV_MEN_PutVal	(DRV_MEN_c.obj)
+  000003D6 00000016 .text   FDMA_12_Interrupt	(DMA_12_c.obj)
+  000003EC 00000050 .text   FDMA_12_Init	(DMA_12_c.obj)
+  0000043C 00000007 .text   FCpu_Interrupt	(Cpu_c.obj)
+  00000443 00000033 .text   FCpu__ivINT_GPIOA	(Cpu_c.obj)
+  00000476 0000000F .text   FCpu_Delay100US	(Cpu_c.obj)
+  00000485 0000004A .text   F_EntryPoint	(Cpu_c.obj)
+  000004CF 000001F8 .text   FPE_low_level_init	(Cpu_c.obj)
+  000006C7 0000001F .text   Fmain	(ProcessorExpert_c.obj)
+  000006E6 00000046 .text   FSPIWrite	(OLED_c.obj)
+  0000072C 000000A7 .text   FOLEDInit	(OLED_c.obj)
+  000007D3 000000AD .text   FOLEDPrintAscii	(OLED_c.obj)
+  00000880 00000022 .text   FOLEDClearScreen	(OLED_c.obj)
+  000008A2 00000013 .text   FOLEDSetCharPos	(OLED_c.obj)
+  000008B5 0000001C .text   FOLEDSetPos	(OLED_c.obj)
+  000008D1 00000014 .text   FOLEDUpdate	(OLED_c.obj)
+  000008E5 0000003F .text   FTMR_OnInterrupt	(Events_c.obj)
+  00000924 0000001C .text   FVS_OnInterrupt	(Events_c.obj)
+  00000940 0000006F .text   FHS_OnInterrupt	(Events_c.obj)
+  000009AF 00000014 .text   FDMA_12_OnComplete	(Events_c.obj)
+  000009C3 00000070 .text   FDRV_PWM_Init	(Drive_c.obj)
+  00000A33 00000005 .text   FCamInitSystem	(Cam_c.obj)
+  00000A38 0000009F .text   FADC12_Init	(Cam_c.obj)
+  00000AD7 00000042 rtlib.text rtlib.text	(Runtime 56800E lmm.lib save_reg.o     )
+  00000AD7 00000023 rtlib.text INTERRUPT_SAVEALL	(Runtime 56800E lmm.lib save_reg.o     )
+  00000AFA 0000001F rtlib.text INTERRUPT_RESTOREALL	(Runtime 56800E lmm.lib save_reg.o     )
+  00000B19 0000005C startup.text Finit_56800_	(56F83x_init_asm.obj)
+  00000B19 0000005C startup.text startup.text	(56F83x_init_asm.obj)
+#>00000B75          F_Pcode_end_addr (linker command file)
+#>00000B76          __pROM_data_start (linker command file)
+
+# .data_in_p_flash_ROM
+#>00000000          __xRAM_data_start (linker command file)
+#>00000000          __xRAM_data_end (linker command file)
+#>00000000          __data_size (linker command file)
+
+# .ApplicationData
+#>00000000          F_Xbss_start_addr (linker command file)
+#>00000000          _START_BSS (linker command file)
+  00000000 00000001 .bss    FRatioStore	(SERVO2_c.obj)
+  00000001 00000001 .bss    FRatioStore	(SERVO1_c.obj)
+  00000002 00000001 .bss    FSerFlag	(SCI_c.obj)
+  00000003 00000001 .bss    FSR_lock	(Cpu_c.obj)
+  00000004 00000001 .bss    FSR_reg	(Cpu_c.obj)
+  00000005 00000001 .bss    Fg_nFPSMax	(Events_c.obj)
+  00000005 00000001 .bss    Fg_nFPS	(Events_c.obj)
+  00000006 00000001 .bss    Fg_nFpsTmp	(Events_c.obj)
+  00000007 00000001 .bss    Fst_nCamRow	(Events_c.obj)
+  00000008 00000001 .bss    Fg_nCount1s	(Events_c.obj)
+  00000009 00000001 .bss    Fst_nCount	(Events_c.obj)
+  0000000A 000010C2 .bss    Fg_nCamFrameBuffer	(Cam_c.obj)
+  000010CC 00000001 .bss    Fg_nNowRow	(Cam_c.obj)
+  000010CC 00000001 .bss    Fg_nCamFrameIndex	(Cam_c.obj)
+#>000010CE          _END_BSS (linker command file)
+#>000010CE          F_Xbss_length (linker command file)
+#>000010D0          _HEAP_ADDR (linker command file)
+#>00000100          _HEAP_SIZE (linker command file)
+#>000011D0          _HEAP_END (linker command file)
+#>00000200          _min_stack_size (linker command file)
+#>000011D0          _stack_addr (linker command file)
+#>000013D0          _stack_end (linker command file)
+#>000010D0          F_heap_addr (linker command file)
+#>000011D0          F_heap_end (linker command file)
+#>000011D0          F_Lstack_addr (linker command file)
+#>000011D0          F_StackAddr (linker command file)
+#>000013CF          F_StackEndAddr (linker command file)
+#>00000000          F_Ldata_size (linker command file)
+#>00000000          F_Ldata_RAM_addr (linker command file)
+#>00000B76          F_Ldata_ROM_addr (linker command file)
+#>00000000          F_Livt_size (linker command file)
+#>00000000          F_Livt_RAM_addr (linker command file)
+#>00000000          F_Livt_ROM_addr (linker command file)
+#>00000000          F_xROM_to_xRAM (linker command file)
+#>00000001          F_pROM_to_xRAM (linker command file)
+#>00000000          F_pROM_to_pRAM (linker command file)
+#>00000000          F_start_bss (linker command file)
+#>000010CE          F_end_bss (linker command file)
+#>000013D0          __DATA_END (linker command file)
+
+
+# Memory map:
+  v_addr   p_addr   size     name
+  0000C000 0000C000 00000000            .x_Peripherals
+  00000000 00000000 000000DE .interrupt_vectors .p_Interrupts
+  00000208 00000208 0000096E .ApplicationCode .p_Code
+  00000000 00000000 000013D0 .ApplicationData .x_Data
+  00000200 00000200 00000000 .reserved_FCF .p_reserved_FCF
+  00000000 00000000 00000000 .data_in_p_flash_ROM .p_flash_ROM_data
+  00008000 00008000 0000030C .Data_xROM .x_internal_ROM
+  00060000 00060000 00004000            .p_internal_RAM
+
+# Link start time: Thu Nov 26 06:58:36 2015
+# Link end time: Thu Nov 26 06:58:36 2015
